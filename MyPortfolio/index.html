@@ -1,601 +1,491 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afnas Shan | Premium Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .particles{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      background-image:
+      radial-gradient(#d7ff5f 1px, transparent 1px),
+      radial-gradient(#ffffff 1px, transparent 1px);
+      background-size:60px 60px,120px 120px;
+      background-position:0 0,30px 30px;
+      opacity:0.08;
+      z-index:-2;
+      animation:moveParticles 20s linear infinite;
+    }
+
+    @keyframes moveParticles{
+      from{transform:translateY(0px)}
+      to{transform:translateY(-60px)}
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:radial-gradient(circle,#ffe45e33,transparent 70%);
+      top:-100px;
+      right:-100px;
+      z-index:-1;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:350px;
+      height:350px;
+      background:radial-gradient(circle,#b8ff6a22,transparent 70%);
+      bottom:-100px;
+      left:-100px;
+      z-index:-1;
+    }
+
+    .container{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:30px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .logo span{
+      color:#d7ff5f;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      color:#ccc;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:white;
+    }
+
+    .btn{
+      padding:12px 24px;
+      border-radius:40px;
+      background:#d7ff5f;
+      color:black;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-block;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 20px #d7ff5f33;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      align-items:center;
+      gap:40px;
+      min-height:85vh;
+    }
+
+    .hero-text h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-text h1 span{
+      color:#d7ff5f;
+    }
+
+    .hero-text p{
+      color:#b5b5b5;
+      line-height:1.8;
+      max-width:650px;
+      margin-bottom:35px;
+      font-size:17px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .secondary-btn{
+      padding:12px 24px;
+      border:1px solid #333;
+      border-radius:40px;
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+    }
+
+    .secondary-btn:hover{
+      background:#151515;
+    }
+
+    .hero-image{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .hero-image::before{
+      content:'';
+      position:absolute;
+      width:400px;
+      height:400px;
+      background:radial-gradient(circle,#d7ff5f55,transparent 70%);
+      border-radius:50%;
+      z-index:0;
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:420px;
+      border-radius:35px;
+      object-fit:cover;
+      position:relative;
+      z-index:1;
+      border:1px solid #222;
+      box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .stats{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .stat-box{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:30px;
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+    }
+
+    .stat-box h2{
+      font-size:42px;
+      color:#d7ff5f;
+      margin-bottom:8px;
+    }
+
+    .stat-box p{
+      color:#a0a0a0;
+    }
+
+    section{
+      padding:120px 0 40px;
+    }
+
+    .section-title{
+      font-size:50px;
+      margin-bottom:50px;
+    }
+
+    .section-title span{
+      color:#d7ff5f;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#101010;
+      border:1px solid #1c1c1c;
+      border-radius:28px;
+      padding:35px;
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#d7ff5f;
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#bcbcbc;
+      line-height:1.8;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      margin-top:30px;
+    }
+
+    .skill{
+      padding:12px 18px;
+      border-radius:40px;
+      background:#121212;
+      border:1px solid #232323;
+      color:#d7ff5f;
+    }
+
+    .contact-box{
+      margin-top:60px;
+      background:linear-gradient(135deg,#111,#1b1b1b);
+      border-radius:35px;
+      padding:50px;
+      text-align:center;
+      border:1px solid #262626;
+    }
+
+    .contact-box h2{
+      font-size:48px;
+      margin-bottom:20px;
+    }
+
+    .contact-box p{
+      color:#bbb;
+      margin-bottom:30px;
+    }
+
+    footer{
+      padding:40px 0;
+      text-align:center;
+      color:#777;
+    }
+
+    @media(max-width:980px){
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:40px;
+      }
+
+      .hero-text h1{
+        font-size:52px;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      nav ul{
+        display:none;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .section-title{
+        font-size:38px;
+      }
+
+      .contact-box h2{
+        font-size:36px;
+      }
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Afnas Shan | Premium Portfolio&lt;/title&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>*{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-sizing:border-box;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family:'Poppins',sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>html{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>scroll-behavior:smooth;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#050505;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow-x:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.particles{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:fixed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height:100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-image:</p>
-<p class="p1"><span class="Apple-converted-space">      </span>radial-gradient(#d7ff5f 1px, transparent 1px),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>radial-gradient(#ffffff 1px, transparent 1px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-size:60px 60px,120px 120px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-position:0 0,30px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity:0.08;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index:-2;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation:moveParticles 20s linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes moveParticles{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>from{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform:translateY(0px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>to{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform:translateY(-60px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body::before{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content:'';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:fixed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:500px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height:500px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:radial-gradient(circle,#ffe45e33,transparent 70%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top:-100px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>right:-100px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index:-1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body::after{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content:'';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:fixed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:350px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height:350px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:radial-gradient(circle,#b8ff6a22,transparent 70%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bottom:-100px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left:-100px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index:-1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:90%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width:1300px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:auto;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:30px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo span{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#d7ff5f;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>list-style:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:30px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul li a{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#ccc;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition:0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul li a:hover{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:14px 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#d7ff5f;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:black;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition:0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform:translateY(-3px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 10px 20px #d7ff5f55;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.secondary-btn{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:14px 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid #333;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition:0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.secondary-btn:hover{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#121212;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height:90vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.1fr 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:50px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-text h1{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:72px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:25px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-text h1 span{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#d7ff5f;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-text p{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#bcbcbc;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.8;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:17px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:35px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width:650px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-buttons{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-image{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-image::before{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content:'';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:420px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height:420px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:radial-gradient(circle,#d7ff5f44,transparent 70%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index:0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-image img{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width:420px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:35px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index:1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid #222;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>object-fit:cover;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation:floatImage 5s ease-in-out infinite;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 20px 50px rgba(0,0,0,0.5);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes floatImage{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>0%{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform:translateY(0px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>50%{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform:translateY(-12px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>100%{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform:translateY(0px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stats{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:45px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stat-box{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:30px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:25px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(255,255,255,0.04);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter:blur(12px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stat-box h2{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:42px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#d7ff5f;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stat-box p{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#aaa;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>section{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:100px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-title{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:50px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:50px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-title span{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#d7ff5f;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cards{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(auto-fit,minmax(280px,1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:25px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(255,255,255,0.04);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:35px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter:blur(10px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition:0.4s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card:hover{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform:translateY(-10px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-color:#d7ff5f;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card h3{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:24px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:15px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card p{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#bcbcbc;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.8;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.skills{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:15px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.skill{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:14px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#111;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid #242424;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#d7ff5f;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-box{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:linear-gradient(135deg,#111,#1a1a1a);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:60px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:35px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid #222;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-box h2{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:48px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-box p{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#bbb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:30px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:40px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#666;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:980px){</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns:1fr;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding-top:40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-text h1{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size:52px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.stats{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns:1fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>nav ul{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>display:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:600px){</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-text h1{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size:40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.section-title{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size:36px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.contact-box{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding:40px 25px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.contact-box h2{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size:34px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="particles"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="container"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Afnas&lt;span&gt;.&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#experience"&gt;Experience&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#skills"&gt;Skills&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="mailto:afnasp2@gmail.com" class="btn"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Hire Me</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="hero"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-text"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Outbound &lt;span&gt;Associate&lt;/span&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&amp; Operations Specialist</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/h1&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>I'm Afnas Palamadathil, currently working at Talabat as an Outbound Associate in Abu Dhabi, UAE.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Experienced in fulfillment operations, inventory management, logistics, and customer service with more than 6 years of experience across UAE retail and e-commerce sectors.</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-buttons"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#contact" class="btn"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Contact Me</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="Afnas-CV.pdf" class="secondary-btn" download&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Download CV</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stats"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="stat-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;6+&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Years Experience&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="stat-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;98%&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;SKU Accuracy&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="stat-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;20%&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Faster Fulfillment&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-image"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Put your photo in same folder --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="profile.jpg" alt="Afnas Shan"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="about"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="section-title"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>About &lt;span&gt;Me&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cards"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Operations&lt;/h3&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Skilled in dark store operations, outbound fulfillment, inventory management, and workflow optimization with strong operational accuracy and speed.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Leadership&lt;/h3&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Experienced in team management, KPI monitoring, SOP implementation, and improving fulfillment efficiency through structured coordination.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Customer Focus&lt;/h3&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Dedicated to maintaining high customer satisfaction through accurate order handling, fast dispatch, and quality service.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="experience"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="section-title"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Work &lt;span&gt;Experience&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cards"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Talabat&lt;/h3&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Currently working as an Outbound Associate managing dispatch operations, fulfillment coordination, inventory flow, and delivery accuracy.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Noon UAE&lt;/h3&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Managed dark store operations including FIFO inventory handling, SKU audits, workflow optimization, and RTV processes.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;InstaShop DMCC&lt;/h3&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Worked as Team Leader supervising picking, packing, dispatch operations, and improving team performance through KPI monitoring.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="skills"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="section-title"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>My &lt;span&gt;Skills&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="skills"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Order Fulfillment&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Inventory Management&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Supply Chain&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Logistics&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Operations&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Team Leadership&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;SKU Management&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Customer Service&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;Workflow Optimization&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="skill"&gt;KPI Monitoring&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="contact"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="contact-box"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Let's Work Together</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Open for opportunities in fulfillment, logistics, warehouse operations, and supply chain management.</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="mailto:afnasp2@gmail.com" class="btn"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>afnasp2@gmail.com</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>© 2026 Afnas Palamadathil — Portfolio Website</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
-</html>
+
+  <div class="particles"></div>
+
+  <div class="container">
+
+    <nav>
+      <div class="logo">Afnas<span>.</span></div>
+
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="mailto:afnasp2@gmail.com" class="btn">Hire Me</a>
+    </nav>
+
+
+    <section class="hero">
+
+      <div class="hero-text">
+        <h1>
+          Outbound <span>Associate</span><br>
+          & Operations Specialist
+        </h1>
+
+        <p>
+          I'm Afnas Palamadathil, currently working at Talabat as an Outbound Associate in Abu Dhabi, UAE.
+          Experienced in e-commerce operations, fulfillment, inventory management, and logistics with a strong focus on speed, accuracy, and customer satisfaction.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn">Contact Me</a>
+          <a href="https://www.linkedin.com/in/afnas-palamadathil-4395ba228" class="secondary-btn" target="_blank">LinkedIn</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat-box">
+            <h2>6+</h2>
+            <p>Years Experience</p>
+          </div>
+
+          <div class="stat-box">
+            <h2>98%</h2>
+            <p>SKU Accuracy</p>
+          </div>
+
+          <div class="stat-box">
+            <h2>20%</h2>
+            <p>Faster Fulfillment</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="hero-image">
+        <!-- Replace profile.jpg with your uploaded image name -->
+        <img src="profile.jpg" alt="Afnas Shan">
+      </div>
+
+    </section>
+
+
+    <section id="about">
+      <h2 class="section-title">About <span>Me</span></h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Operations</h3>
+          <p>
+            Skilled in dark store operations, outbound fulfillment, inventory management, and workflow optimization.
+            Strong experience coordinating logistics and maintaining operational efficiency.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Leadership</h3>
+          <p>
+            Experienced in team leadership, KPI monitoring, and SOP implementation to improve productivity and reduce operational errors.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Customer Focus</h3>
+          <p>
+            Dedicated to delivering excellent customer satisfaction through accurate fulfillment, fast delivery coordination, and quality service.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="experience">
+      <h2 class="section-title">Work <span>Experience</span></h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Talabat</h3>
+          <p>
+            Currently working as an Outbound Associate handling order dispatch, fulfillment coordination, inventory movement, and ensuring smooth delivery operations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Noon UAE</h3>
+          <p>
+            Managed dark store operations with FIFO inventory control, RTV handling, SKU audits, and process optimization that improved fulfillment speed.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>InstaShop DMCC</h3>
+          <p>
+            Worked as Team Leader supervising picking, packing, dispatch operations, and training teams to improve order accuracy and efficiency.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="skills">
+      <h2 class="section-title">My <span>Skills</span></h2>
+
+      <div class="skills">
+        <div class="skill">Order Fulfillment</div>
+        <div class="skill">Inventory Management</div>
+        <div class="skill">Team Leadership</div>
+        <div class="skill">KPI Monitoring</div>
+        <div class="skill">Supply Chain</div>
+        <div class="skill">Operations</div>
+        <div class="skill">Customer Service</div>
+        <div class="skill">Workflow Optimization</div>
+        <div class="skill">Logistics</div>
+        <div class="skill">SKU Management</div>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="contact-box">
+        <h2>Let's Work Together</h2>
+
+        <p>
+          Looking for opportunities in operations, logistics, fulfillment, or warehouse management.
+        </p>
+
+        <a href="mailto:afnasp2@gmail.com" class="btn">afnasp2@gmail.com</a>
+      </div>
+  
